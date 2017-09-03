@@ -18,7 +18,7 @@ object PartialFuncDemo {
     case _ => 1
   }
 
-  def def main (args: Array[String]) {
+  def main (args: Array[String]) {
     println(func1("one"))
     println(func2("one"))
   }

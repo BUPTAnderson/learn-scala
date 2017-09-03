@@ -6,7 +6,7 @@ package learn15
  * Some包装了某个值， None表示没有值
  */
 object OptionDemo {
-  def def main (args: Array[String]) {
+  def main (args: Array[String]) {
     val map = Map("a" -> 1, "b" -> 2)
     val v = map.get("b") match {
       case Some(i) => i
