@@ -22,6 +22,10 @@ object Chapter04 {
 
     var map2 = new mutable.HashMap[String, Double]()
     for((key,value)<-map1) map2(key) = value*0.9
+
+    // 另一种方式
+//    var map2 = for((k, v) <- map1) yield(k, v*0.9)
+
     for((key,value)<-map2) print(key+":"+value+" ")
     println()
   }
