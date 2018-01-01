@@ -1,4 +1,4 @@
-package quick.learn
+package quick.learn.class3
 
 /**
   * Scala中类的定义
