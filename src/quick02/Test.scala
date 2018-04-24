@@ -23,15 +23,34 @@ object Test {
   //  grep(".*gcd.*")
 
   def main(args: Array[String]): Unit = {
-    val name = StdIn.readLine("Your name: ")
-    print("Your age: ")
-    val age = StdIn.readInt()
-    println(s"Hello, ${name}! Net year, you will be ${age + 1}.")
-
-    grep(".*for.*")
+//    val name = StdIn.readLine("Your name: ")
+//    print("Your age: ")
+//    val age = StdIn.readInt()
+//    println(s"Hello, ${name}! Net year, you will be ${age + 1}.")
+//
+//    grep(".*for.*")
+//    print(isort(List(4, 3, 2, 1)).mkString(","))
+//    print(ipToBinaryString("210.77.128.0").substring(0, 19))
+    print(ipToBinaryString("210.77.128.0"))
   }
 
   def reorderArray(arr: Array[Int]): Array[Int] = {
     (for (i <- 0 until(arr.length, 2)) yield if (i + 1 < arr.length) Array(arr(i + 1), arr(i)) else Array(arr(i))).flatten.toArray
+  }
+
+  def isort(xs: List[Int]): List[Int] =
+    if (xs.isEmpty) Nil
+    else insert(xs.head, isort(xs.tail))
+
+  def insert(x: Int, xs: List[Int]): List[Int] =
+    if (xs.isEmpty || x <= xs.head) x :: xs
+    else xs.head :: insert(x, xs.tail)
+
+  private def ipToBinaryString(ip: String): String = {
+    ip.split("""\.""").map(x => x.toInt.toBinaryString).map(x => {
+      val preLen = 8 - x.length
+      val preTxt = "0" * preLen
+      preTxt + x
+    }).reduce(_ + _)
   }
 }
